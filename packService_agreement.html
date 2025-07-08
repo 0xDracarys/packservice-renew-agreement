@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Agreement: Packservice Web Renewal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .transition-all {
+            transition: all 0.3s ease-in-out;
+        }
+        .card-selected {
+            border-color: #2563eb;
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
+            transform: translateY(-5px);
+        }
+        .timeline-step {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 2rem;
+            border-left: 2px solid #e5e7eb;
+        }
+        .timeline-step:last-child {
+            border-left: 2px solid transparent;
+            padding-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -0.5rem;
+            top: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+        }
+        .timeline-step-active .timeline-dot {
+            background-color: #2563eb;
+        }
+        .timeline-step-active h4 {
+            color: #1f2937;
+        }
+        .btn-disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .section-fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .section-fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .section-fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .section-fade-in:nth-child(4) { animation-delay: 0.4s; }
+        .section-fade-in:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+    <!-- Chosen Palette: Warm Neutrals with Blue Accent -->
+    <!-- Application Structure Plan: A single-page, vertical-scrolling application designed to guide the client through the agreement. It starts with a welcome, moves to an an interactive side-by-side comparison of the two service options (the core of the app), visualizes the timeline, clarifies key terms, and concludes with next steps. This structure was chosen to transform a dense document into an easy-to-digest, decision-making tool, focusing on the primary user task: comparing and selecting a service tier. -->
+    <!-- Visualization & Content Choices:
+        - Report Info: Scope of Services (Option A vs B) -> Goal: Compare -> Viz: Two interactive cards side-by-side -> Interaction: Click-to-select, which highlights the card and updates other sections -> Justification: Direct comparison is the clearest way to present tiered choices. -> Method: HTML/CSS/JS.
+        - Report Info: Project Timeline -> Goal: Show process -> Viz: Vertical Timeline -> Interaction: Highlights dynamically based on selected service option -> Justification: More engaging and understandable than a text list. -> Method: HTML/CSS/JS.
+        - Report Info: Payment Terms -> Goal: Inform -> Viz: Two dynamic info cards for Deposit/Final Payment -> Interaction: Amounts update based on selected option's cost. -> Justification: Clear and directly tied to user's choice. -> Method: HTML/JS.
+        - New LLM Feature: Detailed Scope Explanation -> Goal: Clarify -> Viz: Expandable text area -> Interaction: Button click triggers LLM call to generate detailed explanation of selected scope -> Justification: Provides deeper understanding of complex project details. -> Method: HTML/JS with Gemini API.
+        - New Feature: Download Agreement PDF -> Goal: Formalize -> Viz: Button -> Interaction: Button click generates and downloads a PDF of the formal agreement with selected options. -> Justification: Provides a tangible, signable document for the client. -> Method: HTML/JS with jsPDF library.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-gray-50 text-gray-700">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-7xl">
+
+        <!-- Section 1: Header -->
+        <header class="text-center mb-12 section-fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Project Agreement</h1>
+            <p class="mt-4 text-lg text-gray-600">An Interactive Overview for Packservice Web Renewal</p>
+        </header>
+
+        <!-- Section 2: Scope Selection -->
+        <section class="mb-16 section-fade-in">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800">Choose Your Service Option</h2>
+                <p class="mt-2 max-w-2xl mx-auto">Select a plan to see a detailed breakdown of the timeline and investment. This agreement focuses on enhancing existing features; new features will require a separate scope.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Option A Card -->
+                <div id="option-a-card" class="bg-white p-8 rounded-xl border-2 border-transparent transition-all cursor-pointer">
+                    <h3 class="text-2xl font-bold text-gray-800">Option A: Full Preparation</h3>
+                    <p class="text-4xl font-bold text-blue-600 my-4">€300 – €350</p>
+                    <p class="text-gray-600 mb-6 min-h-[48px]">A complete design refresh and resolution of all identified issues with existing features.</p>
+                    <ul class="space-y-3 text-left">
+                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1">✓</span><span>Homepage & Pages Design Refresh</span></li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1">✓</span><span>Footer Area Modernization</span></li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1">✓</span><span>Service Page Enhancement</span></li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1">✓</span><span>Contact Page UI & Map Fixes</span></li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1">✓</span><span>Backend Form Reconnection & Error Fix</span></li>
+                    </ul>
+                    <button onclick="selectOption('A')" class="mt-8 w-full bg-blue-600 text-white font-bold py-3 rounded-lg transition-all hover:bg-blue-700">Select Full Prep</button>
+                </div>
+
+                <!-- Option B Card -->
+                <div id="option-b-card" class="bg-white p-8 rounded-xl border-2 border-transparent transition-all cursor-pointer">
+                    <h3 class="text-2xl font-bold text-gray-800">Option B: Form Reconnection</h3>
+                    <p class="text-4xl font-bold text-blue-600 my-4">€150 – €180</p>
+                    <p class="text-gray-600 mb-6 min-h-[48px]">Specifically address the contact form functionality by ensuring seamless backend integration.</p>
+                    <ul class="space-y-3 text-left">
+                        <li class="flex items-start"><span class="text-gray-400 mr-3 mt-1">✗</span><span class="text-gray-400">Homepage & Pages Design Refresh</span></li>
+                        <li class="flex items-start"><span class="text-gray-400 mr-3 mt-1">✗</span><span class="text-gray-400">Footer Area Modernization</span></li>
+                        <li class="flex items-start"><span class="text-gray-400 mr-3 mt-1">✗</span><span class="text-gray-400">Service Page Enhancement</span></li>
+                        <li class="flex items-start"><span class="text-gray-400 mr-3 mt-1">✗</span><span class="text-gray-400">Contact Page UI & Map Fixes</span></li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1">✓</span><span>Backend Form Reconnection & Error Fix</span></li>
+                    </ul>
+                    <button onclick="selectOption('B')" class="mt-8 w-full bg-blue-600 text-white font-bold py-3 rounded-lg transition-all hover:bg-blue-700">Select Form Fix</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Project Details (Timeline & Payment) -->
+        <div id="project-details" class="transition-all duration-500 opacity-0">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+                <!-- Timeline -->
+                <div class="lg:col-span-3 section-fade-in">
+                    <div class="bg-white p-8 rounded-xl h-full">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Estimated Project Timeline</h2>
+                        <p class="mb-8" id="timeline-description">Select an option above to see the corresponding timeline.</p>
+                        <div id="timeline-container">
+                            <!-- Timeline steps will be dynamically generated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment -->
+                <div class="lg:col-span-2 section-fade-in">
+                    <div class="bg-white p-8 rounded-xl h-full">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Payment Terms</h2>
+                        <p class="mb-8">Based on your selection, the payment is structured as follows.</p>
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="font-semibold text-blue-800">50% Initial Deposit</p>
+                                <p class="text-2xl font-bold text-blue-900" id="deposit-amount">€0</p>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <p class="font-semibold text-gray-800">50% Final Payment</p>
+                                <p class="text-2xl font-bold text-gray-900" id="final-amount">€0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Key Terms & Next Steps -->
+        <section class="mt-16 section-fade-in" id="next-steps-section" style="display: none;">
+            <div class="bg-white p-8 rounded-xl">
+                 <h2 class="text-3xl font-bold text-gray-800 text-center mb-10">Summary & Next Steps</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                     <div>
+                         <h3 class="text-xl font-bold text-gray-800 mb-4">Key Responsibilities</h3>
+                         <ul class="space-y-3">
+                             <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1">✓</span><span>Provide timely feedback and approvals.</span></li>
+                             <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1">✓</span><span>Furnish necessary content (text, images, branding).</span></li>
+                             <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1">✓</span><span>Grant access to existing website hosting and backend.</span></li>
+                         </ul>
+                     </div>
+                     <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Your Selected Plan</h3>
+                        <div id="summary-card" class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-gray-800" id="summary-title">No Selection Made</h4>
+                            <p class="text-gray-600" id="summary-description">Please select a service option above.</p>
+                            <p class="text-2xl font-bold text-blue-600 mt-2" id="summary-cost">€0</p>
+                            <button id="generate-scope-btn" onclick="generateDetailedScope()" class="mt-4 w-full bg-purple-600 text-white font-bold py-2 px-4 rounded-lg transition-all hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed">✨ Get Detailed Scope</button>
+                        </div>
+                        <div id="detailed-scope-output" class="mt-6 p-6 bg-blue-50 rounded-lg text-gray-700 hidden">
+                            <h4 class="font-bold text-lg mb-2">Detailed Scope Explanation:</h4>
+                            <div id="scope-content"></div>
+                            <div id="scope-loading" class="text-center py-4 hidden">
+                                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto"></div>
+                                <p class="mt-2 text-blue-600">Generating...</p>
+                            </div>
+                        </div>
+                     </div>
+                 </div>
+                 <div class="text-center mt-12 flex flex-col sm:flex-row justify-center items-center gap-4">
+                     <p class="mb-4 sm:mb-0">Please download the formal agreement below to review and sign the terms and conditions.</p>
+                     <button id="download-agreement-btn" onclick="downloadAgreementPDF()" class="bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition-all hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed">Download Terms & Conditions for Signature</button>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-gray-500 text-sm section-fade-in">
+            <p>&copy; 2025 Zenithh. All Rights Reserved.</p>
+            <p>This is an interactive overview. The formal agreement will be provided for signature.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const state = {
+            selectedOption: null,
+            costs: {
+                A: { low: 300, high: 350 },
+                B: { low: 150, high: 180 }
+            },
+            timeline: {
+                A: [
+                    { week: 1, title: 'Consultation & Scope', desc: 'Finalize project scope and gather all content.' },
+                    { week: 2, title: 'Design & Development', desc: 'Implement design refresh and functionality fixes.' },
+                    { week: 3, title: 'Testing & Launch', desc: 'Ensure all changes are working correctly before handover.' }
+                ],
+                B: [
+                    { week: 1, title: 'Consultation & Scope', desc: 'Finalize scope for form reconnection and gain access.' },
+                    { week: 2, title: 'Backend Integration', desc: 'Reconnect the form to the database and fix server errors.' },
+                    { week: 3, title: 'Testing & Handover', desc: 'Verify submission storage and complete the project.' }
+                ]
+            },
+            optionDetails: {
+                A: "Option A: Full Preparation includes a complete design refresh for your website, modernizing the homepage and existing pages. We will also update the footer, enhance service pages, fix the contact page UI and map integration, and ensure your existing forms are reconnected to a backend database, resolving any server errors. This comprehensive package aims to give your entire site a polished, professional look and ensure core functionalities are robust.",
+                B: "Option B: Form Reconnection focuses specifically on resolving the functionality issues with your existing contact form. This involves reconnecting the form to a robust backend database to ensure all user submissions are seamlessly stored and the 'internal server error' is eliminated. This option is ideal if you primarily need to fix the reliability of your current contact system without a full design overhaul."
+            },
+            optionServices: {
+                A: [
+                    "Homepage & Pages Design Refresh: Implement a cleaner, more contemporary aesthetic for the overall website layout, including optimization of existing content blocks.",
+                    "Footer Area Modernization: Redesign the footer to include updated copyright, essential navigation links, and improved visual appeal.",
+                    "Technical Service Page Enhancement: Improve the layout, readability, and visual engagement of existing service pages.",
+                    "Contact Page UI & Map Fixes: Redesign the contact page for a professional look, ensure the Google Maps integration is functional.",
+                    "Backend Form Reconnection & Error Fix: Reconnect existing forms to a backend database for reliable and seamless storage of user submissions, resolving the 'internal server error'.",
+                    "Basic Responsiveness Review: Ensure the refreshed design adapts appropriately across common devices."
+                ],
+                B: [
+                    "Backend Form Reconnection & Error Fix: Reconnect existing forms (e.g., the contact form) to a backend database for reliable and seamless storage of user submissions, resolving the 'internal server error'.",
+                    "Basic Form Functionality Testing: Verify that form submissions are successfully received and stored."
+                ]
+            }
+        };
+
+        function selectOption(option) {
+            state.selectedOption = option;
+            updateUI();
+        }
+
+        function createTimelineHTML(option) {
+            if (!option) return '';
+            
+            const steps = state.timeline[option];
+            return steps.map(step => `
+                <div class="timeline-step timeline-step-active">
+                    <div class="timeline-dot"></div>
+                    <h4 class="font-bold text-lg mb-1">Week ${step.week}: ${step.title}</h4>
+                    <p class="text-gray-600">${step.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        async function generateDetailedScope() {
+            const generateBtn = document.getElementById('generate-scope-btn');
+            const scopeOutputDiv = document.getElementById('detailed-scope-output');
+            const scopeContent = document.getElementById('scope-content');
+            const scopeLoading = document.getElementById('scope-loading');
+
+            if (!state.selectedOption) {
+                scopeContent.textContent = 'Please select an option first.';
+                scopeOutputDiv.classList.remove('hidden');
+                return;
+            }
+
+            generateBtn.disabled = true;
+            generateBtn.textContent = 'Generating...';
+            scopeOutputDiv.classList.remove('hidden');
+            scopeContent.textContent = '';
+            scopeLoading.classList.remove('hidden');
+
+            const promptText = `Provide a detailed, professional explanation of "${state.optionDetails[state.selectedOption]}". Expand on the technical aspects and client benefits in about 150-200 words.`;
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: promptText }] });
+            const payload = { contents: chatHistory };
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    scopeContent.textContent = text;
+                } else {
+                    scopeContent.textContent = 'Failed to generate detailed scope. Please try again.';
+                }
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                scopeContent.textContent = 'An error occurred while connecting to the service. Please try again later.';
+            } finally {
+                generateBtn.disabled = false;
+                generateBtn.textContent = '✨ Get Detailed Scope';
+                scopeLoading.classList.add('hidden');
+            }
+        }
+
+        function updateUI() {
+            const { selectedOption, costs } = state;
+
+            // Update Cards
+            const cardA = document.getElementById('option-a-card');
+            const cardB = document.getElementById('option-b-card');
+            cardA.classList.toggle('card-selected', selectedOption === 'A');
+            cardB.classList.toggle('card-selected', selectedOption === 'B');
+
+            // Show details section
+            const detailsSection = document.getElementById('project-details');
+            const nextStepsSection = document.getElementById('next-steps-section');
+            const generateScopeBtn = document.getElementById('generate-scope-btn');
+            const detailedScopeOutput = document.getElementById('detailed-scope-output');
+            const downloadBtn = document.getElementById('download-agreement-btn');
+
+            if (selectedOption) {
+                detailsSection.classList.remove('opacity-0');
+                nextStepsSection.style.display = 'block';
+                generateScopeBtn.disabled = false;
+                downloadBtn.disabled = false;
+                // Hide previously generated scope when option changes
+                detailedScopeOutput.classList.add('hidden');
+                document.getElementById('scope-content').textContent = '';
+            } else {
+                generateScopeBtn.disabled = true;
+                downloadBtn.disabled = true;
+            }
+            
+            // Update Timeline
+            const timelineContainer = document.getElementById('timeline-container');
+            const timelineDescription = document.getElementById('timeline-description');
+            if (selectedOption) {
+                timelineDescription.textContent = `An estimated 2-3 week timeline for Option ${selectedOption}.`;
+                timelineContainer.innerHTML = createTimelineHTML(selectedOption);
+            }
+
+            // Update Payment Info
+            const depositEl = document.getElementById('deposit-amount');
+            const finalEl = document.getElementById('final-amount');
+            if (selectedOption) {
+                const low = costs[selectedOption].low;
+                const high = costs[selectedOption].high;
+                depositEl.textContent = `€${low / 2} – €${high / 2}`;
+                finalEl.textContent = `€${low / 2} – €${high / 2}`;
+            } else {
+                depositEl.textContent = '€0';
+                finalEl.textContent = '€0';
+            }
+
+            // Update Summary Card
+            const summaryTitle = document.getElementById('summary-title');
+            const summaryDesc = document.getElementById('summary-description');
+            const summaryCost = document.getElementById('summary-cost');
+
+            if (selectedOption === 'A') {
+                summaryTitle.textContent = 'Option A: Full Preparation';
+                summaryDesc.textContent = 'A complete design refresh and resolution of all identified issues with existing features.';
+                summaryCost.textContent = `€${costs.A.low} – €${costs.A.high}`;
+            } else if (selectedOption === 'B') {
+                summaryTitle.textContent = 'Option B: Form Reconnection';
+                summaryDesc.textContent = 'Specifically address the contact form functionality by ensuring seamless backend integration.';
+                summaryCost.textContent = `€${costs.B.low} – €${costs.B.high}`;
+            }
+        }
+
+        async function downloadAgreementPDF() {
+            if (!state.selectedOption) {
+                alert('Please select a service option first to generate the agreement.');
+                return;
+            }
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            let y = 20;
+            const margin = 20;
+            const lineHeight = 7;
+            const pageWidth = doc.internal.pageSize.getWidth();
+
+            const addText = (text, x, y, options = {}) => {
+                const splitText = doc.splitTextToSize(text, pageWidth - 2 * margin);
+                doc.text(splitText, x, y, options);
+                return splitText.length * lineHeight;
+            };
+
+            doc.setFontSize(22);
+            y += addText('Project Agreement: Web Renewal & Enhancement', margin, y, { align: 'center' });
+            y += 10;
+
+            doc.setFontSize(12);
+            y += addText(`This Project Agreement ("Agreement") is entered into as of ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} ("Effective Date"), by and between:`, margin, y);
+            y += 10;
+
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'bold');
+            y += addText('Zenithh (hereinafter "Service Provider")', margin, y);
+            doc.setFont(undefined, 'normal');
+            y += addText('Email: Shubhambhaskr123@gmail.com', margin, y);
+            y += addText('Website: zenithh.netlify.app', margin, y);
+            y += 10;
+
+            doc.setFont(undefined, 'bold');
+            y += addText('AND', margin, y, { align: 'center' });
+            y += 10;
+
+            doc.setFont(undefined, 'bold');
+            y += addText('Packservice (hereinafter "Client")', margin, y);
+            doc.setFont(undefined, 'normal');
+            y += addText('Represented by: [Client Representative Name - To be filled by Client]', margin, y);
+            y += addText('Contact Email: [Client Contact Email - To be filled by Client]', margin, y);
+            y += addText('Contact Phone: [Client Contact Phone - To be filled by Client]', margin, y);
+            y += 15;
+
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            y += addText('1. Project Overview', margin, y);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(12);
+            y += addText('The Client desires to engage the Service Provider for web renewal and enhancement services for their existing website, www.packservice.lt. This Agreement outlines the scope of work, deliverables, payment terms, and other mutual obligations.', margin, y);
+            y += 10;
+
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            y += addText('2. Scope of Services', margin, y);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(12);
+            y += addText('The Service Provider will perform services as detailed below, based on the Client\'s selected option. It is expressly understood that this Agreement, and the associated pricing, specifically covers the rectification and enhancement of existing website features and design. The development and integration of new features, such as a dedicated order placement system beyond the existing contact form, are explicitly excluded from this scope and will require a separate agreement and pricing.', margin, y);
+            y += 10;
+
+            doc.setFont(undefined, 'bold');
+            const selectedOptionText = state.selectedOption === 'A' ? 'Option A: Full Website Preparation (Design Refresh & Existing Feature Fixes)' : 'Option B: Existing Form Reconnection Only';
+            y += addText(`Selected Option: ${selectedOptionText}`, margin, y);
+            doc.setFont(undefined, 'normal');
+            y += 5;
+
+            const selectedServices = state.optionServices[state.selectedOption];
+            selectedServices.forEach(service => {
+                y += addText(`- ${service}`, margin + 5, y);
+            });
+            y += 5;
+
+            const selectedCosts = state.costs[state.selectedOption];
+            y += addText(`Estimated Cost: €${selectedCosts.low} – €${selectedCosts.high}`, margin, y);
+            y += 15;
+
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            y += addText('3. Deliverables', margin, y);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(12);
+            y += addText('Upon completion of the selected scope, the Service Provider will deliver:', margin, y);
+            y += addText('- Updated website design files (if Option A is selected).', margin + 5, y);
+            y += addText('- Functional and tested website code reflecting the agreed-upon changes.', margin + 5, y);
+            y += addText('- Access to the updated website platform/codebase.', margin + 5, y);
+            y += 15;
+
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            y += addText('4. Project Timeline', margin, y);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(12);
+            y += addText('The estimated timeline for the completion of the selected scope is 2-3 weeks from the Effective Date, contingent upon timely feedback and provision of necessary content/access from the Client.', margin, y);
+            state.timeline[state.selectedOption].forEach(step => {
+                y += addText(`- Week ${step.week}: ${step.title} - ${step.desc}`, margin + 5, y);
+            });
+            y += 15;
+
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            y += addText('5. Payment Terms', margin, y);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(12);
+            y += addText('Payment for the selected services will be made as follows:', margin, y);
+            y += addText(`- Initial Deposit: 50% of the total estimated cost (€${selectedCosts.low / 2} – €${selectedCosts.high / 2}), due upon signing of this Agreement.`, margin + 5, y);
+            y += addText(`- Final Payment: The remaining 50% of the total estimated cost (€${selectedCosts.low / 2} – €${selectedCosts.high / 2}), due upon project completion and before final handover.`, margin + 5, y);
+            y += addText('All payments shall be made in Euros (€). Invoices will be provided by the Service Provider.', margin, y);
+            y += 15;
+
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            y += addText('6. Client Responsibilities', margin, y);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(12);
+            y += addText('The Client agrees to:', margin, y);
+            y += addText('- Provide timely feedback and approvals throughout the project.', margin + 5, y);
+            y += addText('- Furnish all necessary content (text, images, branding assets) required for the project.', margin + 5, y);
+            y += addText('- Grant necessary access to the existing website hosting, domain, and any relevant backend systems.', margin + 5, y);
+            y += 15;
+
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            y += addText('7. Intellectual Property', margin, y);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(12);
+            y += addText('Upon full payment, the Client will own the intellectual property rights to the final design and code specifically developed for this project. The Service Provider retains the right to display the completed project in their portfolio for promotional purposes.', margin, y);
+            y += 15;
+
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            y += addText('8. Confidentiality', margin, y);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(12);
+            y += addText('Both parties agree to keep confidential all proprietary and confidential information obtained from the other party during the course of this Agreement.', margin, y);
+            y += 15;
+
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            y += addText('9. Term and Termination', margin, y);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(12);
+            y += addText('This Agreement shall commence on the Effective Date and continue until the completion of the services, unless terminated earlier by either party with 30 days\' written notice for material breach of this Agreement.', margin, y);
+            y += 15;
+
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            y += addText('10. Disclaimer of Warranties', margin, y);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(12);
+            y += addText('The Service Provider warrants that the services will be performed in a professional and workmanlike manner. The Service Provider does not warrant that the operation of the website will be uninterrupted or error-free.', margin, y);
+            y += 15;
+
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            y += addText('11. Governing Law', margin, y);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(12);
+            y += addText('This Agreement shall be governed by and construed in accordance with the laws of Germany.', margin, y);
+            y += 15;
+
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            y += addText('12. Entire Agreement', margin, y);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(12);
+            y += addText('This Agreement constitutes the entire agreement between the parties concerning the subject matter hereof and supersedes all prior agreements and understandings, whether written or oral.', margin, y);
+            y += 20;
+
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'bold');
+            y += addText('IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.', margin, y);
+            y += 20;
+
+            doc.setFont(undefined, 'normal');
+            y += addText('For Zenithh (Service Provider):', margin, y);
+            y += 15;
+            y += addText('Signature: ______________________________', margin, y);
+            y += lineHeight;
+            y += addText('Name: Shubham Bhasker', margin, y);
+            y += lineHeight;
+            y += addText(`Date: ${new Date().toLocaleDateString()}`, margin, y);
+            y += 20;
+
+            y += addText('For Packservice (Client):', margin, y);
+            y += 15;
+            y += addText('Signature: ______________________________', margin, y);
+            y += lineHeight;
+            y += addText('Name: [Client Representative Name]', margin, y);
+            y += lineHeight;
+            y += addText('Title: [Client Representative Title]', margin, y);
+            y += lineHeight;
+            y += addText('Date: ______________________________', margin, y);
+
+            doc.save('Zenithh_Packservice_Agreement.pdf');
+        }
+
+        // Initial render on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // No initial selection
+        });
+    </script>
+
+</body>
+</html>
