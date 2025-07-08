@@ -1,0 +1,715 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 11606
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 22 Tf
+25.2999999999999972 TL
+0 g
+-118.2070866141732637 785.1970866141732586 Td
+(Project Agreement: Web Renewal &) Tj
+107.5800000000000267 -25.2999999999999972 Td
+(Enhancement) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 717.1655905511811397 Td
+(This Project Agreement \("Agreement"\) is entered into as of July 8, 2025 \("Effective Date"\),) Tj
+T* (by and between:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 649.1340944881889072 Td
+(Zenithh \(hereinafter "Service Provider"\)) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 629.291574803149615 Td
+(Email: hello@zenithh.com) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 609.4490551181102092 Td
+(Website: zenithh.netlify.app) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+43.7329133858267767 561.2600787401574962 Td
+(AND) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 513.0711023622046696 Td
+(Packservice \(hereinafter "Client"\)) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 493.2285826771653205 Td
+(Represented by: [Client Representative Name - To be filled by Client]) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 473.3860629921259147 Td
+(Contact Email: [Client Contact Email - To be filled by Client]) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 453.5435433070865656 Td
+(Contact Phone: [Client Contact Phone - To be filled by Client]) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 391.1813385826770855 Td
+(1. Project Overview) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 371.3388188976377364 Td
+(The Client desires to engage the Service Provider for web renewal and enhancement) Tj
+T* (services for their existing website, www.packservice.lt. This Agreement outlines the scope) Tj
+T* (of work, deliverables, payment terms, and other mutual obligations.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 283.4648031496062686 Td
+(2. Scope of Services) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 263.6222834645668627 Td
+(The Service Provider will perform services as detailed below, based on the Client's) Tj
+T* (selected option. It is expressly understood that this Agreement, and the associated pricing,) Tj
+T* (specifically covers the rectification and enhancement of existing website features and) Tj
+T* (design. The development and integration of new features, such as a dedicated order) Tj
+T* (placement system beyond the existing contact form, are explicitly excluded from this scope) Tj
+T* (and will require a separate agreement and pricing.) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 116.220708661417234 Td
+(Selected Option: Option A: Full Website Preparation \(Design Refresh & Existing) Tj
+T* (Feature Fixes\)) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 62.3624409448817687 Td
+(- Homepage & Pages Design Refresh: Implement a cleaner, more contemporary aesthetic) Tj
+T* (for the overall website layout, including optimization of existing content blocks.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 22.6774015748030706 Td
+(- Footer Area Modernization: Redesign the footer to include updated copyright, essential) Tj
+T* (navigation links, and improved visual appeal.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -17.0076377952757412 Td
+(- Technical Service Page Enhancement: Improve the layout, readability, and visual) Tj
+T* (engagement of existing service pages.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -56.6926771653544392 Td
+(- Contact Page UI & Map Fixes: Redesign the contact page for a professional look, ensure) Tj
+T* (the Google Maps integration is functional.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -96.3777165354331373 Td
+(- Backend Form Reconnection & Error Fix: Reconnect existing forms to a backend) Tj
+T* (database for reliable and seamless storage of user submissions, resolving the 'internal) Tj
+T* (server error'.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -155.9052755905512413 Td
+(- Basic Responsiveness Review: Ensure the refreshed design adapts appropriately across) Tj
+T* (common devices.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -209.7635433070867066 Td
+(Estimated Cost: €300 – €350) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 -272.1257480314963004 Td
+(3. Deliverables) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -291.9682677165354789 Td
+(Upon completion of the selected scope, the Service Provider will deliver:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -311.8107874015748848 Td
+(- Updated website design files \(if Option A is selected\).) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -331.6533070866142907 Td
+(- Functional and tested website code reflecting the agreed-upon changes.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -351.4958267716536966 Td
+(- Access to the updated website platform/codebase.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 -413.8580314960630631 Td
+(4. Project Timeline) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -433.7005511811024689 Td
+(The estimated timeline for the completion of the selected scope is 2-3 weeks from the) Tj
+T* (Effective Date, contingent upon timely feedback and provision of necessary content/access) Tj
+T* (from the Client.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -493.2281102362206866 Td
+(- Week 1: Consultation & Scope - Finalize project scope and gather all content.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -513.0706299212600925 Td
+(- Week 2: Design & Development - Implement design refresh and functionality fixes.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -532.913149606299271 Td
+(- Week 3: Testing & Launch - Ensure all changes are working correctly before handover.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 -595.2753543307088648 Td
+(5. Payment Terms) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -615.1178740157482707 Td
+(Payment for the selected services will be made as follows:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -634.9603937007876766 Td
+(- Initial Deposit: 50% of the total estimated cost \(€150 – €175\), due upon signing of this) Tj
+T* (Agreement.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -674.645433070866261 Td
+(- Final Payment: The remaining 50% of the total estimated cost \(€150 – €175\), due upon) Tj
+T* (project completion and before final handover.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -714.3304724409450728 Td
+(All payments shall be made in Euros \(€\). Invoices will be provided by the Service Provider.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 -776.6926771653544392 Td
+(6. Client Responsibilities) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -796.5351968503938451 Td
+(The Client agrees to:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -816.377716535433251 Td
+(- Provide timely feedback and approvals throughout the project.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -836.2202362204726569 Td
+(- Furnish all necessary content \(text, images, branding assets\) required for the project.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 -856.0627559055120628 Td
+(- Grant necessary access to the existing website hosting, domain, and any relevant) Tj
+T* (backend systems.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 -938.2674803149608351 Td
+(7. Intellectual Property) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -958.110000000000241 Td
+(Upon full payment, the Client will own the intellectual property rights to the final design and) Tj
+T* (code specifically developed for this project. The Service Provider retains the right to display) Tj
+T* (the completed project in their portfolio for promotional purposes.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 -1060.1572440944883056 Td
+(8. Confidentiality) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -1079.9997637795277114 Td
+(Both parties agree to keep confidential all proprietary and confidential information obtained) Tj
+T* (from the other party during the course of this Agreement.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 -1162.2044881889764838 Td
+(9. Term and Termination) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -1182.0470078740158897 Td
+(This Agreement shall commence on the Effective Date and continue until the completion of) Tj
+T* (the services, unless terminated earlier by either party with 30 days' written notice for) Tj
+T* (material breach of this Agreement.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 -1284.0942519685040679 Td
+(10. Disclaimer of Warranties) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -1303.9367716535434738 Td
+(The Service Provider warrants that the services will be performed in a professional and) Tj
+T* (workmanlike manner. The Service Provider does not warrant that the operation of the) Tj
+T* (website will be uninterrupted or error-free.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 -1405.984015748031652 Td
+(11. Governing Law) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -1425.8265354330710579 Td
+(This Agreement shall be governed by and construed in accordance with the laws of) Tj
+T* (Germany.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 -1508.0312598425198303 Td
+(12. Entire Agreement) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -1527.8737795275592362 Td
+(This Agreement constitutes the entire agreement between the parties concerning the) Tj
+T* (subject matter hereof and supersedes all prior agreements and understandings, whether) Tj
+T* (written or oral.) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -1644.0942519685045227 Td
+(IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective) Tj
+T* (Date.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -1740.4722047244099485 Td
+(For Zenithh \(Service Provider\):) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -1802.834409448819315 Td
+(Signature: ______________________________) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -1842.5194488188981268 Td
+(Name: [Service Provider Representative Name]) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -1882.2044881889769385 Td
+(Date: 08/07/2025) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -1958.7399212598429585 Td
+(For Packservice \(Client\):) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -2021.102125984252325 Td
+(Signature: ______________________________) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -2060.7871653543311368 Td
+(Name: [Client Representative Name]) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -2100.4722047244099485 Td
+(Title: [Client Representative Title]) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 -2140.1572440944887603 Td
+(Date: ______________________________) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R ]
+/Count 1
+>>
+endobj
+5 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+/F3 7 0 R
+/F4 8 0 R
+/F5 9 0 R
+/F6 10 0 R
+/F7 11 0 R
+/F8 12 0 R
+/F9 13 0 R
+/F10 14 0 R
+/F11 15 0 R
+/F12 16 0 R
+/F13 17 0 R
+/F14 18 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+19 0 obj
+<<
+/Producer (jsPDF 2.5.1)
+/CreationDate (D:20250708175854+03'00')
+>>
+endobj
+20 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 21
+0000000000 65535 f 
+0000011811 00000 n 
+0000013628 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000011868 00000 n 
+0000011993 00000 n 
+0000012123 00000 n 
+0000012256 00000 n 
+0000012393 00000 n 
+0000012516 00000 n 
+0000012645 00000 n 
+0000012777 00000 n 
+0000012913 00000 n 
+0000013041 00000 n 
+0000013168 00000 n 
+0000013297 00000 n 
+0000013430 00000 n 
+0000013532 00000 n 
+0000013876 00000 n 
+0000013962 00000 n 
+trailer
+<<
+/Size 21
+/Root 20 0 R
+/Info 19 0 R
+/ID [ <4706BFEE0E642C79542BBADB0C06E4E1> <4706BFEE0E642C79542BBADB0C06E4E1> ]
+>>
+startxref
+14066
+%%EOF
